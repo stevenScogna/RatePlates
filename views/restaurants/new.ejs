@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Restaurant</title>
+</head>
+
+<body>
+    <h1>Create a Restaurant</h1>
+    <form action="/restaurants" method="POST">
+        <label for="title">Restaurant Name:</label>
+        <input type="text" name="restaurant[title]" id="title" placeholder="Restaurant Name">
+        <label for="location">Location: </label>
+        <input type="text" name="restaurant[location]" id="location" placeholder="City, State">
+        <label for="cuisine">Cuisine Type: </label>
+        <input type="text" name="restaurant[cuisine]" id="cuisine" placeholder="American, Mexican, Italian...">
+        <button>Submit</button>
+    </form>
+    <button><a href="/restaurants">Cancel</a></button>
+
+</body>
+
+</html>

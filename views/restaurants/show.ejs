@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant</title>
+</head>
+
+<body>
+    <h1>
+        <%= restaurant.title %>
+    </h1>
+    <h2>
+        <%= restaurant.location %>
+    </h2>
+    <h3>
+        <% restaurant.cuisine %>
+    </h3>
+    <form action="/restaurants/<%=restaurant._id%>?_method=DELETE" method="POST"><button>Delete Restaurant</button>
+    </form>
+    <button><a href="/restaurants/<%=restaurant._id%>/edit">Edit Restaurant</a></button>
+    <button><a href="/restaurants">All Restaurants</a></button>
+    <br>
+    <br>
+    <h2>All Products</h2>
+    <button><a href="/restaurants/<%=restaurant._id%>/products/new">Create New Product</a></button>
+    <ul>
+        <% for (let product of restaurant.products) { %>
+            <li>
+                <a href="/restaurants/<%=restaurant._id%>/products/<%=product._id%>">
+                    <%=product.name%>
+                </a>
+            </li>
+            <% } %>
+    </ul>
+</body>
+
+</html>

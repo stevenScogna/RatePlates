@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%=product.name%>
+    </title>
+</head>
+
+<body>
+    <h1>
+        <%=product.name %>
+    </h1>
+    <h2>
+        <%=product.description %>
+    </h2>
+    <button><a href="/restaurants/<%=restaurant._id%>/products/<%=product._id%>/edit">Edit Product</a></button>
+    <button><a href="/restaurants/<%=restaurant._id%>">Back to Restaurant</a></button>
+    <form action="/restaurants/<%=restaurant._id%>/products/<%=product._id%>?_method=DELETE" method="POST">
+        <button>Delete Product</button>
+    </form>
+
+
+    <h3>Leave a Review:</h3>
+    <form action="/restaurants/<%=restaurant._id%>/products/<%=product._id%>/reviews" method="POST">
+        <label for="rating">Rating</label>
+        <input type="range" min="1" max="10" name="review[rating]" id="rating">
+        <label for="body">Review</label>
+        <textarea name="review[body]" id="body" cols="30" rows="3"></textarea>
+        <button>Submit Review</button>
+    </form>
+    <% for(let review of product.reviews) { %>
+        <p>Rating: <%=review.rating%>
+        </p>
+        <p>Review: <%=review.body%>
+        </p>
+        <form action="/restaurants/<%=restaurant._id%>/products/<%=product._id%>/reviews/<%=review._id%>?_method=DELETE"
+            method="POST">
+            <button>Delete Review</button>
+        </form>
+        <% } %>
+
+
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Campground</title>
+</head>
+
+<body>
+    <h1>Edit a Restaurant</h1>
+    <form action="/restaurants/<%=restaurant._id%>?_method=PUT" method="POST">
+        <label for="title">Restaurant Name:</label>
+        <input type="text" name="restaurant[title]" id="title" value="<%=restaurant.title%>">
+        <label for="location">Location: </label>
+        <input type="text" name="restaurant[location]" id="location" value="<%=restaurant.location%>">
+        <label for="cuisine">Cuisine Type: </label>
+        <input type="text" name="restaurant[cuisine]" id="cuisine" value="<%=restaurant.cuisine%>">
+        <button>Submit</button>
+    </form>
+    <button><a href="/restaurants/<%=restaurant._id%>">Cancel</a></button>
+</body>
+
+</html>
