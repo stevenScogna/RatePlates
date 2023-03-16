@@ -25,11 +25,15 @@
 
 
     <h3>Leave a Review:</h3>
-    <form action="/restaurants/<%=restaurant._id%>/products/<%=product._id%>/reviews" method="POST">
+    <form class="validated-form" action="/restaurants/<%=restaurant._id%>/products/<%=product._id%>/reviews"
+        method="POST" novalidate>
         <label for="rating">Rating</label>
         <input type="range" min="1" max="10" name="review[rating]" id="rating">
         <label for="body">Review</label>
-        <textarea name="review[body]" id="body" cols="30" rows="3"></textarea>
+        <textarea name="review[body]" id="body" cols="30" rows="3" required></textarea>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
         <button>Submit Review</button>
     </form>
     <% for(let review of product.reviews) { %>

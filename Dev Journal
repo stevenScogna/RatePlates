@@ -1,0 +1,16 @@
+Git Commit #1 Journal – 3/7/23 - 3/14/23
+This is the first Full-Stack project I have begun on my own, which led me to realize there were things that made sense during my bootcamp, but didn’t stick as much as I originally thought. I took this first week to go through the foundation of this project slowly to make sure I understand each line I code and why that code works. The design wasn’t important at this point, I was focused on pure functionality.
+-	
+-	I began by setting up the foundation for this application and installing the npm packages needed to work on basic CRUD functionality (express, mongoose, ejs, path, method-override). I required all my packages, set my apps views folder, set the view engine to ejs, and set up my mongoose connection.
+-	Then I created my first Schema and Model for the restaurants. Started simple with just a title, location, and cuisine (will build as the app progresses).
+-	Next, I set up the CRUD functionality for the restaurants. I set up an index for all restaurants with links to show pages for each restaurant, and forms to edit/create a restaurant’s details. Also included the ability to delete an entire restaurant.
+-	I also wanted to show the products associated with each restaurant on the restaurant’s show page, so I then worked on a product schema/model and nested routes for the products. The product schema started simple with just the name and description.
+-	My next decision was the database relationships between the product and restaurant. I decided to set up a many to many relationship, because there will be many products for each restaurant and each restaurant will have many locations with the same products. I added the restaurant to the Product Schema with an ObjectId Schema Type, referencing the product. I also added products to the Restaurant Schema as an array of ObjectIds, referencing the restaurant.
+-	Next, I created CRUD functionality for the products and nested those routes within the restaurant routes.
+-	This project is meant to allow users to share their opinion on individual products, so I built CRUD functionality for the user to review the products at each restaurant. I created a simple review schema/model with a rating and body for the review. Then I nested the review routes within the product routes.
+-	At this point, without any design, a user can create a new restaurant, a product for that restaurant, and a review for that product. They can view & edit the details for a restaurant, it’s products, and the reviews. They can also delete any of the above.
+-	My next step is to start adding in validations and error handling.
+
+
+Git Commit #2 Journal 3/15/23 – 3/16/23
+This step was adding in some client & server-side validations along with error handling. I used bootstrap’s validations for the client-side and JOI validations for the server-side. I chose JOI because it has the opportunity to scale, validating large amounts of data and while keeping the code concise. This step was pretty simple and gave me a helpful mini-refresher on JOI. Next step will be to restructure using Router, set up a boilerplate & partials, configure my sessions, and add some styling.
